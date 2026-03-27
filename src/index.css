@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0F0F11;
+    color: #E4E4E7;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute w-0 h-[2px] -bottom-1 left-0 bg-gold-500 transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .glassmorphism {
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .service-card {
+    @apply transition-all duration-500;
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn-hover {
+    @apply transition-all duration-300 relative overflow-hidden;
+  }
+  .btn-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.4);
+  }
+  
+  /* Gallery Image Hover */
+  .gallery-item {
+    @apply overflow-hidden relative rounded-lg;
+  }
+  .gallery-item img {
+    @apply transition-transform duration-700;
+  }
+  .gallery-item:hover img {
+    @apply scale-110;
+  }
+  
+  .gallery-item .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .gallery-overlay {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500 flex items-end p-6;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  }
+  .gallery-item:hover .gallery-overlay {
+    @apply opacity-100;
+  }
+}
+
+/* Fade-in Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
