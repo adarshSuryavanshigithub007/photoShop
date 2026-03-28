@@ -31,28 +31,30 @@ const Contact = () => {
     const websiteUrl = window.location.origin; // Dynamically gets the current website URL
     
     const textMessage = `*NEW BOOKING INQUIRY*
----------------------------------------
-Hello Mahale Photography,
-You have received a new booking request.
+      ---------------------------------------
+      Hello Mahale Photography,
+      You have received a new booking request.
 
-*CLIENT DETAILS*
-• *Name:* ${formData.fullname}
-• *Phone:* ${formData.mobilenumber}
+      *CLIENT DETAILS*
+      • *Name:* ${formData.fullname}
+      • *Phone:* ${formData.mobilenumber}
 
-*BOOKING INFORMATION*
-• *Shoot:* ${formData.typeofPhotoshoot}
-• *Date:* ${formData.desiredDate}
+      *BOOKING INFORMATION*
+      • *Shoot:* ${formData.typeofPhotoshoot}
+      • *Date:* ${formData.desiredDate}
 
-*ADDITIONAL NOTES*
-${formData.message || "No additional message provided."}
----------------------------------------
-Please reply to this message to confirm.
+      *ADDITIONAL NOTES*
+      ${formData.message || "No additional message provided."}
+      ---------------------------------------
+      Please reply to this message to confirm.
 
-🔗 View Portfolio: ${websiteUrl}`;
+      🔗 View Portfolio: ${websiteUrl}`;
 
-    window.open(
-      `https://wa.me/918073980562?text=${encodeURIComponent(textMessage)}`,
-    );
+        const url = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+        ? `whatsapp://send?phone=918073980562&text=${encodeURIComponent(textMessage)}`
+        : `https://wa.me/918073980562?text=${encodeURIComponent(textMessage)}`;
+
+      window.open(url);
   };
 
   return (
