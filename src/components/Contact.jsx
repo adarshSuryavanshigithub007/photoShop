@@ -9,10 +9,18 @@ const Contact = () => {
     message: "",
   });
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === 'mobilenumber') {
+      const value = e.target.value.replace(/^\+91/, '');
+      setFormData({
+        ...formData,
+        mobilenumber: '+91' + value,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -43,7 +51,7 @@ Please reply to this message to confirm.
 🔗 View Portfolio: ${websiteUrl}`;
 
     window.open(
-      `https://wa.me/8073980562?text=${encodeURIComponent(textMessage)}`,
+      `https://wa.me/918073980562?text=${encodeURIComponent(textMessage)}`,
     );
   };
 
@@ -144,7 +152,7 @@ Please reply to this message to confirm.
                         value={formData.mobilenumber}
                         name="mobilenumber"
                         onChange={handleChange}
-                        placeholder="+1 (___) ___-____"
+                        placeholder="+91 (___) ___-____"
                         required
                         className="w-full bg-dark-900 border border-gray-700 text-white rounded-lg px-4 py-3 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition"
                       />
