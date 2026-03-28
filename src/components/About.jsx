@@ -41,18 +41,6 @@ const About = () => {
           <div ref={imageRef} className="relative fade-in">
             <div className="absolute -inset-4 bg-gradient-to-r from-gold-500/20 to-purple-500/20 blur-xl rounded-full opacity-50"></div>
             <img src="/img/hero.png" alt="Behind the scenes at Neon Studio" className="relative rounded-2xl shadow-2xl object-cover h-[500px] w-full border border-white/5" />
-            
-            <div className="absolute -bottom-6 -right-6 glassmorphism p-6 rounded-xl border border-white/10 shadow-xl hidden md:block">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center text-dark-900 text-xl">
-                  <i className="fa-solid fa-star"></i>
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-xl">Award Winning</h4>
-                  <p className="text-gray-400 text-sm">Photography Studio</p>
-                </div>
-              </div>
-            </div>
           </div>
           
           {/* Text Side */}
